@@ -12,19 +12,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // se();
-  }
-
-  Future<void> se() async {
-    await Future.delayed(const Duration(seconds: 3));
-
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
@@ -46,22 +33,32 @@ class _HomePageState extends State<HomePage> {
               const Expanded(flex: 1, child: Text('  ')),
               Expanded(
                   flex: 1,
-                  child: Column(
-                    children: [
-                      const Padding(
-                        padding: Paddings.onlyBottomMedium,
-                        child: Text('STUDYING SPACE '),
-                      ),
-                      Padding(
-                        padding: Paddings.symmetricMediumHorizontal,
-                        child: StartButton(
-                          primary: ColorUtilites.StartButtonColor,
+                  child: Padding(
+                    padding: Paddings.symmetricMediumHorizontal,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: Paddings.onlyBottomMedium,
+                          child: Text(
+                            'studyingSpace'.tr(),
+                            style: Theme.of(context).textTheme.headline5,
+                          ),
+                        ),
+                        Padding(
+                          padding: Paddings.onlyBottomMedium,
+                          child: Text(
+                            'infoWelcome'.tr(),
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                        ),
+                        StartButton(
+                          primary: ColorUtilites.startButtonColor,
                           title: Text('knowMore'.tr()),
                           onPressed: () {},
                           height: MediaQuery.of(context).size.height * 0.07,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   )),
               //   Expanded(flex:1,child: ElevatedButton(onPressed: (){}, child: ))
             ],
@@ -73,10 +70,10 @@ class _HomePageState extends State<HomePage> {
 }
 
 class ColorUtilites {
-  static const Color StartButtonColor = Color.fromARGB(255, 17, 19, 124);
+  static const Color startButtonColor = Color.fromARGB(255, 17, 19, 124);
 }
 
 class Paddings {
-  static const EdgeInsets onlyBottomMedium = EdgeInsets.only(bottom: 12.0);
+  static const EdgeInsets onlyBottomMedium = EdgeInsets.only(bottom: 16.0);
   static const EdgeInsets symmetricMediumHorizontal = EdgeInsets.symmetric(horizontal: 12.0);
 }

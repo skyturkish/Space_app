@@ -1,13 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_imbd_redesign_advanced/core/init/translations/language_manager.dart';
 import 'package:flutter_imbd_redesign_advanced/view/homepage/view/homepage_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
-    supportedLocales: const [Locale('en', 'US'), Locale('en', 'US')],
+    supportedLocales: LanguageManager.instance.supportedLocales,
     path: 'asset/translations',
+    startLocale: LanguageManager.instance.enLocale,
     child: const MyApp(),
   ));
 }
