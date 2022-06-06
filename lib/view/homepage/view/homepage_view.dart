@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_imbd_redesign_advanced/core/constants/image/image_constants.dart';
 import 'package:flutter_imbd_redesign_advanced/product/widget/button/start_button.dart';
@@ -10,6 +11,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // se();
+  }
+
+  Future<void> se() async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                         padding: Paddings.symmetricMediumHorizontal,
                         child: StartButton(
                           primary: ColorUtilites.StartButtonColor,
-                          title: const Text('Know More'),
+                          title: Text('knowMore'.tr()),
                           onPressed: () {},
                           height: MediaQuery.of(context).size.height * 0.07,
                         ),
