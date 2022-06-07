@@ -1,16 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_imbd_redesign_advanced/core/constants/image/image_constants.dart';
+import 'package:flutter_imbd_redesign_advanced/core/constants/navigation/navigation_constants.dart';
+import 'package:flutter_imbd_redesign_advanced/core/init/navigation/navigation_service.dart';
 import 'package:flutter_imbd_redesign_advanced/product/widget/button/start_button.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class WelcomePage extends StatefulWidget {
+  const WelcomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<WelcomePage> createState() => _WelcomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Padding(
-                          padding: Paddings.onlyBottomMedium,
+                          padding: Paddings.onlyBottomLarge,
                           child: Text(
                             'infoWelcome'.tr(),
                             style: Theme.of(context).textTheme.subtitle1,
@@ -54,7 +56,9 @@ class _HomePageState extends State<HomePage> {
                         StartButton(
                           primary: ColorUtilites.startButtonColor,
                           title: Text('knowMore'.tr()),
-                          onPressed: () {},
+                          onPressed: () {
+                            NavigationService.instance.navigateToPage(path: NavigationConstants.HOMEPAGE);
+                          },
                           height: MediaQuery.of(context).size.height * 0.07,
                         ),
                       ],
@@ -75,5 +79,7 @@ class ColorUtilites {
 
 class Paddings {
   static const EdgeInsets onlyBottomMedium = EdgeInsets.only(bottom: 16.0);
+  static const EdgeInsets onlyBottomLarge = EdgeInsets.only(bottom: 24.0);
+
   static const EdgeInsets symmetricMediumHorizontal = EdgeInsets.symmetric(horizontal: 12.0);
 }
